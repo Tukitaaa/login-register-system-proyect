@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro y Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="container" id="container">
+    
+    <!-- Formulario de Registro -->
+    <div class="form-container register-container">
+      <h2>Registro</h2>
+      <form id="registerForm">
+        <input type="text" id="regUsername" placeholder="Usuario" required>
+        <input type="email" id="regEmail" placeholder="Correo electrónico" required>
+        <input type="password" id="regPassword" placeholder="Contraseña" required>
+        <input type="password" id="regConfirmPassword" placeholder="Confirmar contraseña" required>
+        <button type="submit">Registrarse</button>
+      </form>
+    </div>
+
+    <!-- Formulario de Login -->
+    <div class="form-container login-container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="text" id="loginUsername" placeholder="Usuario" required>
+        <input type="password" id="loginPassword" placeholder="Contraseña" required>
+        <button type="submit">Ingresar</button>
+      </form>
+    </div>
+
+    <!-- Panel con Mensaje -->
+    <div class="overlay-container" id="overlayContainer">
+      <div class="overlay">
+        <h2>Hola, Bienvenido a la Web de Tukitaaa</h2>
+        <button id="loginOverlay">Login</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

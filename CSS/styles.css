@@ -1,0 +1,134 @@
+/* Reset general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(-45deg, #9b59b6, #ff6b81, #f39c12, #ff6b81);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Contenedor Principal */
+.container {
+    width: 800px;
+    height: 500px;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+}
+
+/* Paneles de formularios */
+.form-container {
+    width: 50%;
+    padding: 50px;
+    transition: transform 0.6s ease-in-out;
+    position: absolute;
+    height: 100%;
+}
+
+/* Registro (Visible al inicio) */
+.register-container {
+    left: 0;
+    z-index: 2;
+}
+
+/* Login (Oculto al inicio) */
+.login-container {
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(100%); /* Inicia fuera de la pantalla */
+}
+
+/* Panel de Bienvenida */
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(45deg, #FF4B2B, #FF416C);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.6s ease-in-out;
+    z-index: 1; /* Panel de bienvenida siempre detrás de los formularios */
+}
+
+/* Animación cuando se hace clic en Login */
+.container.show-login .overlay-container {
+    transform: translateX(-100%);
+}
+
+.container.show-login .register-container {
+    transform: translateX(-100%); /* Desliza el formulario de registro hacia la izquierda */
+    opacity: 0;
+    visibility: hidden;
+}
+
+.container.show-login .login-container {
+    transform: translateX(0); /* Desliza el formulario de login hacia la derecha */
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+/* Estilos para inputs más grandes */
+input {
+    display: block;
+    width: 100%;
+    margin: 15px 0;
+    padding: 15px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Botones */
+button {
+    background: #FF4B2B;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #FF416C;
+}
+
+.overlay-container button {
+    width: auto;
+    padding: 12px 24px;
+    font-size: 18px;
+    background: white;
+    color: #FF416C;
+    border-radius: 20px;
+}
+
+.overlay-container button:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
